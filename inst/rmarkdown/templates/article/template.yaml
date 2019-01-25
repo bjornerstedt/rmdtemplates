@@ -1,0 +1,4 @@
+name: Scientific article
+description: >
+   Simple article with bookdown features (equation numbers etc.)
+create_dir: FALSE
