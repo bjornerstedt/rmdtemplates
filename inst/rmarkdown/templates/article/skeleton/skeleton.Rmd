@@ -45,7 +45,7 @@ nocite: |
 Cross references are defined by `(\#name)` and invoked by `\@ref(name)`, where `name` can be the label of an equation, table, figure or section. The name consists of two parts, separated by a colon, for example `tab:tabname`, `eq:eqname`.
 
 - For sections `# Cross references {#intro}` in the section title can be referenced as section \@ref(intro)
-- For chunks with plots, and chunks with tables generated with the `kable()` command, the label is the chunk name.
+- For chunks with plots, and chunks with tables generated with the `kable()` command, the label is the chunk name. 
 
 # Figures
 
