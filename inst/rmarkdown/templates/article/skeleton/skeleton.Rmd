@@ -7,7 +7,7 @@ output:
     toc: false
   bookdown::word_document2:
     toc: false
-# bibliography: /Users/jonasbjornerstedt/docs/bibtex/library.bib
+# bibliography: library.bib
 ---
 
 ```{r setup, include=FALSE}
