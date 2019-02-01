@@ -1,4 +1,4 @@
-Package: rmdtemplates
+Package: shtemplates
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
@@ -10,5 +10,5 @@ Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/bjornerstedt/rmdtemplates
-BugReports: https://github.com/bjornerstedt/rmdtemplates/issues
+URL: https://github.com/bjornerstedt/shtemplates
+BugReports: https://github.com/bjornerstedt/shtemplates/issues

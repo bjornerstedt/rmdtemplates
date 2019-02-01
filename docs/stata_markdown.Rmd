@@ -1,0 +1,48 @@
+---
+title: "title"
+author: "author"
+date: ""
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(comment="")
+library(knitr)
+```
+
+
+The file setup.Rmd contains the code from 
+[this page](http://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataProfile.html).
+It configures Rmarkdown to use Stata, and puts the collectcode chunk in profile.do, to be run for each chunk.
+Opening a dta file is an example of usage. 
+
+Note that:
+- The path to Stata has to be set on your computer
+
+```{r child = 'setup.Rmd'}
+```
+
+## R Markdown
+
+This is an R Markdown document illustrating that many languages can be used in the same document.
+
+```{r cars}
+summary(cars)
+```
+
+## Include Stata
+
+Here are some summary statistics for the system Stata dataset `lifeexp.dta`
+
+```{stata, collectcode=TRUE}
+sysuse lifeexp
+summarize
+```
+
+Each chunk has to be self-contained.
+
+```{stata}
+sum popgrowth lexp
+```
+

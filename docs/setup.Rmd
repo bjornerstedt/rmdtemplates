@@ -1,0 +1,40 @@
+---
+title: "Setup"
+author: "Jonas Björnerstedt"
+date: "3/3/2017"
+output: html_document
+---
+
+```{r statasetup, echo=FALSE, message=FALSE, warning=FALSE}
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+    y <- strsplit(x, "\n")[[1]]
+    # Remove command echo in Stata log
+    commandlines <- grep("^\\.", y)
+    if (length(commandlines)>0) {y <- y[-(grep("^\\.", y))]}
+    # Some commands have a leading space?
+    if (length(grep("^[[:space:]*]\\.", y))>0) {
+        y <- y[-(grep("^[[:space:]*]\\.", y))]
+    }
+    # Ensure a trailing blank line
+    if (length(y)>0 && y[length(y)] != "") { y <- c(y, "") }
+    # Remove blank lines at the top of the Stata log
+    firsttext <- min(grep("[[:alnum:]]", y))
+    if (firsttext != Inf) {y <- y[-(1:(firsttext-1))]}
+    # Now treat the result as regular output
+    hook_output(y, options)
+})
+
+knit_hooks$set(collectcode = function(before, options, envir) {
+  if (!before) {
+    profile <- file("profile.do", open="at")
+    writeLines(options$code, profile)
+    close(profile)
+  }
+})
+
+# opts_chunk$set( engine.path=statapath, comment="", statapath = statapath)
+# opts_chunk$set(engine.path=list(r='R', stata = statapath), comment="", statapath = statapath)
+unlink("profile.do")
+
+```
